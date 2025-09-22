@@ -4,11 +4,7 @@ import com.calculator.project.Calculator.project.dto.OperationsResponse;
 import com.calculator.project.Calculator.project.service.CalculatorService;
 import org.apache.coyote.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.*;
 import java.math.BigDecimal;
 
 @RestController
@@ -44,7 +40,7 @@ public class CalculatorController {
 
     @GetMapping("/divide")
     public OperationsResponse divide(@RequestParam("a") BigDecimal a,
-                                     @RequestParam("b") BigDecimal b)  {
+                                     @RequestParam("b") BigDecimal b) throws BadRequestException {
         BigDecimal result = calculatorService.divide(a,b);
         return new OperationsResponse("divide", a,b,result);
 

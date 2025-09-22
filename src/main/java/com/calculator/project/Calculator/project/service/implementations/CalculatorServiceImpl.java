@@ -1,7 +1,7 @@
 package com.calculator.project.Calculator.project.service.implementations;
 
 import com.calculator.project.Calculator.project.service.CalculatorService;
-import org.apache.coyote.BadRequestException;
+import com.calculator.project.Calculator.project.exception.BadRequestException;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -28,7 +28,7 @@ public class CalculatorServiceImpl implements CalculatorService {
     }
 
     @Override
-    public BigDecimal divide(BigDecimal a, BigDecimal b) throws BadRequestException {
+    public BigDecimal divide(BigDecimal a, BigDecimal b) {
         if(b.compareTo(BigDecimal.ZERO) == 0){
             throw new BadRequestException("Division by zero is not possible");
         }
