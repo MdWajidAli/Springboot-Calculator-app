@@ -69,7 +69,7 @@ public class CalculatorController {
 //
 //    }
 
-    @PostMapping("divive")
+    @PostMapping("divide")
     public OperationsResponse divide(@RequestBody OperationRequest request) throws BadRequestException {
         BigDecimal result = calculatorService.divide(request.getA(),request.getB());
         return new OperationsResponse("divide",request.getA(),request.getB(),result);
